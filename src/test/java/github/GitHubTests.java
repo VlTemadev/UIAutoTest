@@ -30,7 +30,7 @@ public class GitHubTests {
         $("div.Layout-sidebar").$(byText("Contributors")).closest(".BorderGrid-cell")
                 .$("ul li:first-child")
                 .hover();
-        $(".Popover-message").shouldHave(text("Andrei Solntsev"));
+        $(".Popover-message").shouldHave(text(AUTHOR_NAME));
 
         sleep(5000);
     }
