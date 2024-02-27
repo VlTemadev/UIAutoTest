@@ -31,7 +31,5 @@ public class GitHubTests {
                 .$("ul li:first-child")
                 .hover();
         $(".Popover-message").shouldHave(text(AUTHOR_NAME));
-
-        sleep(5000);
     }
 }
