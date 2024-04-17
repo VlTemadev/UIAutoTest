@@ -1,5 +1,3 @@
-package drag_and_drop;
-
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DragAndDropOptions;
 import org.junit.jupiter.api.Test;
