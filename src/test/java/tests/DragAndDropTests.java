@@ -1,3 +1,5 @@
+package tests;
+
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.DragAndDropOptions;
 import org.junit.jupiter.api.Test;
@@ -9,8 +11,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class DragAndDropTests {
 
     @Test
-    void dragAndDropTest(){
-        Configuration.browser="safari";
+    void dragAndDropTest() {
+        Configuration.browser = "safari";
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").shouldHave(text("A"));
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
@@ -18,7 +20,7 @@ public class DragAndDropTests {
     }
 
     @Test
-    void dragAndDropTest2(){
+    void dragAndDropTest2() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").shouldHave(text("A"));
         actions().moveToElement($("#column-a")).clickAndHold().moveByOffset(200, 0).release().perform();

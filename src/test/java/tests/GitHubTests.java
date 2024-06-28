@@ -1,8 +1,11 @@
+package tests;
+
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class GitHubTests {
     String BASE_URL = "https://github.com/";
@@ -12,7 +15,7 @@ public class GitHubTests {
     String AUTHOR_NAME = "Andrei Solntsev";
 
     @Test
-    void ShouldSelenideTextInTheTop(){
+    void ShouldSelenideTextInTheTop() {
         open(BASE_URL);
         $(".search-input").click();
         $("#query-builder-test").setValue(VALUE).pressEnter();
@@ -22,7 +25,7 @@ public class GitHubTests {
     }
 
     @Test
-    void ShouldHaveTextInFirstAuthorBlock(){
+    void ShouldHaveTextInFirstAuthorBlock() {
         open(SELENIDE_URL);
         $("div.Layout-sidebar").$(byText("Contributors")).closest(".BorderGrid-cell")
                 .$("ul li:first-child")

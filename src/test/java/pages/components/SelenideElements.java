@@ -8,7 +8,7 @@ public class SelenideElements {
     public final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
-            emailInput  = $("#userEmail"),
+            emailInput = $("#userEmail"),
             genderInput = $("#gender-radio-1"),
             numberInput = $("#userNumber"),
             calendarInput = $("#dateOfBirthInput"),
@@ -24,5 +24,4 @@ public class SelenideElements {
             modalInput = $(".modal-content"),
             tableResponsiveInput = $(".table-responsive"),
             modalFooterInput = $(".modal-footer");
-
 }

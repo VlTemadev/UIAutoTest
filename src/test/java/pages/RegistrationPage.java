@@ -1,5 +1,7 @@
 package pages;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import pages.components.CalendarComponents;
 import pages.components.SelenideElements;
 
@@ -12,6 +14,11 @@ public class RegistrationPage extends SelenideElements {
 
     CalendarComponents calendarComponents = new CalendarComponents();
 
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.holdBrowserOpen = false;
+    }
 
     private final String TITLE_TEXT = "Student Registration Form";
 
