@@ -12,7 +12,7 @@ public class DragAndDropTests {
 
     @Test
     void dragAndDropTest() {
-        Configuration.browser = "safari";
+        Configuration.browser = "firefox";
         open("https://the-internet.herokuapp.com/drag_and_drop");
         $("#column-a").shouldHave(text("A"));
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
