@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class cookiesTests {
+public class CookiesTests {
 
     String BASE_URL = "https://www.otpbank.ru/";
     String LOREM_TEXT = "Продолжая просмотр сайта, вы даете согласие на обработку";

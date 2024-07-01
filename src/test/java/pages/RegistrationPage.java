@@ -1,29 +1,28 @@
 package pages;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import config.TestConfig;
+import core.SelenoidExtension;
+import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.extension.ExtendWith;
 import pages.components.CalendarComponents;
 import pages.components.SelenideElements;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
+
+@ExtendWith(SelenoidExtension.class)
 
 public class RegistrationPage extends SelenideElements {
 
-    CalendarComponents calendarComponents = new CalendarComponents();
+    static TestConfig config = ConfigFactory.create(TestConfig.class);
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = false;
-    }
+    CalendarComponents calendarComponents = new CalendarComponents();
 
     private final String TITLE_TEXT = "Student Registration Form";
 
     public RegistrationPage openPage() {
-        open("/automation-practice-form");
+        open(config.demoqa_url() + "/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -49,75 +48,75 @@ public class RegistrationPage extends SelenideElements {
         return this;
     }
 
-    public RegistrationPage setGender(){
+    public RegistrationPage setGender() {
         genderInput.parent().click();
 
         return this;
     }
 
-    public RegistrationPage setNumber(String value){
-      numberInput.setValue(value);
+    public RegistrationPage setNumber(String value) {
+        numberInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setCalendar(String day, String month, String year) {
-      calendarInput.click();
+        calendarInput.click();
         calendarComponents.setDate(day, month, year);
 
         return this;
     }
 
-    public RegistrationPage setSubjectsInput(String value){
-      subjectsInput.setValue(value);
-      subjectAutoCompileInput.$(byText(value)).click();
+    public RegistrationPage setSubjectsInput(String value) {
+        subjectsInput.setValue(value);
+        subjectAutoCompileInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setHobbies(String value) {
-      hobbiesInput.$(byText(value)).click();
+        hobbiesInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setUploadPicture() {
-      uploadImageInput.uploadFromClasspath("img/test.png");
+        uploadImageInput.uploadFromClasspath("img/test.png");
 
         return this;
     }
 
     public RegistrationPage setAddress(String value) {
-      currentAddressInput.setValue(value);
+        currentAddressInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setState(String value) {
-      stateInput.click();
-      stateCityWrapperInput.$(byText(value)).click();
+        stateInput.click();
+        stateCityWrapperInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setCity(String value) {
-      cityInput.click();
-      stateCityWrapperInput.$(byText(value)).click();
+        cityInput.click();
+        stateCityWrapperInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setSubmit() {
-      submitInput.click();
+        submitInput.click();
 
         return this;
     }
 
     public RegistrationPage resultVerify(String verifyText, String currentAddress) {
-      modalInput.click();
-      modalInput.shouldHave(text(verifyText));
-      tableResponsiveInput.shouldHave(text(currentAddress));
-      modalFooterInput.lastChild().pressEnter();
+        modalInput.click();
+        modalInput.shouldHave(text(verifyText));
+        tableResponsiveInput.shouldHave(text(currentAddress));
+        modalFooterInput.lastChild().pressEnter();
 
         return this;
     }

@@ -15,11 +15,35 @@ allure {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+        resources {
+            srcDirs = ['src/test/resources']
+        }
+    }
+}
+
 dependencies {
     testImplementation(
-            'com.codeborne:selenide:7.2.3',
+            'com.codeborne:selenide:7.3.3',
+            'org.aeonbits.owner:owner:1.0.12',
+            'com.codeborne:selenide-selenoid:7.3.3',
             'io.qameta.allure:allure-selenide:2.27.0',
             'org.junit.jupiter:junit-jupiter:5.9.2',
+            'org.junit.jupiter:junit-jupiter-engine:5.10.3',
+            'org.junit.jupiter:junit-jupiter-params:5.10.3',
+            'org.junit.jupiter:junit-jupiter-api:5.10.3',
             'org.slf4j:slf4j-simple:2.0.6'
     )
 }
