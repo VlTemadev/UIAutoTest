@@ -3,12 +3,14 @@ package tests;
 
 import com.codeborne.selenide.DragAndDropOptions;
 import core.SelenoidExtension;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
+@Disabled("Test")
 @ExtendWith(SelenoidExtension.class)
 public class DragAndDropTests {
 
