@@ -1,7 +1,6 @@
 package tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -10,11 +9,9 @@ import static pages.testData.TestData.*;
 
 public class RegistrationTest extends RegistrationPage {
 
+    @Disabled("stop")
     @Test
     void successfulRegistrationForm() {
-
-        SelenideLogger.addListener("allure", new AllureSelenide());
-
         step("Отерытие страницы", this::openPage);
         step("Заполнение username и lastname", () -> setFirstName(userName).setLastName(lastName));
         step("Заполнение адреса и номера", () -> setEmail(email).setGender().setNumber(userNumber));

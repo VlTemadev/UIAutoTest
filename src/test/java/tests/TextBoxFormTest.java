@@ -1,14 +1,17 @@
 package tests;
 
-import org.junit.jupiter.api.Disabled;
+import core.SelenoidExtension;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import pages.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-@Disabled("Test")
-public class TextBoxFormTest {
+//@Disabled("Test")
+@ExtendWith(SelenoidExtension.class)
+public class TextBoxFormTest extends TestBase {
 
     @Test
     void fillFormTest() {

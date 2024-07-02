@@ -1,8 +1,11 @@
 package pages;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import config.TestConfig;
 import core.SelenoidExtension;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import pages.components.CalendarComponents;
 import pages.components.SelenideElements;
@@ -14,11 +17,15 @@ import static com.codeborne.selenide.Selenide.*;
 @ExtendWith(SelenoidExtension.class)
 
 public class RegistrationPage extends SelenideElements {
+    
+    @BeforeEach
+    void testBase() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+    }
 
     static TestConfig config = ConfigFactory.create(TestConfig.class);
 
     CalendarComponents calendarComponents = new CalendarComponents();
-
     private final String TITLE_TEXT = "Student Registration Form";
 
     public RegistrationPage openPage() {

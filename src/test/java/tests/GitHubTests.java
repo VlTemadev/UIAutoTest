@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import pages.TestBase;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 @Disabled("Test")
-public class GitHubTests {
+public class GitHubTests extends TestBase {
     String BASE_URL = "https://github.com/";
     String SELENIDE_URL = "https://github.com/selenide/selenide";
     String VALUE = "selenide";
